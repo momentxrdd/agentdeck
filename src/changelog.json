@@ -1,0 +1,19 @@
+[
+  {
+    "version": "0.1.0",
+    "date": "2026-10-29",
+    "features": [
+      {
+        "title": "Fix bugs & performance"
+      },
+      {
+        "title": "Agentdeck",
+        "description": "Run Claude Code, Codex, Cursor and Antigravity side by side in one desktop app."
+      },
+      {
+        "title": "Custom background, Zen mode and tray status",
+        "description": "Pick your own background image, hide every panel with Ctrl+Alt+Z, and see working and waiting agents from the system tray."
+      }
+    ]
+  }
+]

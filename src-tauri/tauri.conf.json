@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Agentdeck",
+  "version": "0.1.0",
+  "identifier": "com.agentdeck.app",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "title": "Agentdeck",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 600,
+        "decorations": false,
+        "transparent": true,
+        "resizable": true,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; frame-src http: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "nsis", "dmg", "app"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ],
+    "resources": [],
+    "copyright": "Copyright 2026 Agentdeck",
+    "shortDescription": "Agent Desktop Environment - multi-agent CLI terminal manager",
+    "longDescription": "Agentdeck is a desktop application for running Claude Code, Codex, Cursor, and Antigravity CLIs side by side in tabbed and grid views. Features include per-agent profiles, worktree lifecycle, hunk review, and session restore.",
+    "category": "DeveloperTool",
+    "publisher": "Agentdeck",
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "signCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/sign-windows.ps1 -FilePath \"%1\"",
+      "nsis": {
+        "installerIcon": "icons/icon.ico",
+        "headerImage": "icons/nsis-header.bmp",
+        "sidebarImage": "icons/nsis-sidebar.bmp",
+        "installMode": "currentUser",
+        "languages": ["English"],
+        "displayLanguageSelector": false,
+        "compression": "lzma",
+        "installerHooks": "./installer-hooks.nsh"
+      },
+      "wix": {
+        "language": "en-US",
+        "upgradeCode": "5b7e2c91-6f3a-4d08-9a14-c0e8d27b3f56"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "10.15"
+    }
+  }
+}
